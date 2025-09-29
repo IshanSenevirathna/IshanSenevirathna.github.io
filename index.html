@@ -1,45 +1,203 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Portfolio</title>
+  <title>Ishan Senevirathna - Portfolio</title>
   <style>
+    * {margin: 0; padding: 0; box-sizing: border-box;}
     body {
-      background: linear-gradient(135deg, #6a11cb, #2575fc);
-      color: white;
-      font-family: 'Arial', sans-serif;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: #fdfdfd;
+      color: #333;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+    header {
+      height: 100vh;
+      background: linear-gradient(to right, #6a11cb, #2575fc);
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
-      height: 100vh;
-      margin: 0;
+      color: white;
       text-align: center;
     }
-    h1 {
-      font-size: 3em;
-      margin: 0;
-      animation: glow 2s infinite alternate;
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
     }
-    p {
-      font-size: 1.2em;
-      margin-top: 10px;
+    header p {
+      font-size: 1.2rem;
     }
-    @keyframes glow {
-      from {
-        text-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff;
-      }
-      to {
-        text-shadow: 0 0 20px #fffa, 0 0 40px #fff;
-      }
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(0,0,0,0.7);
+      padding: 10px 0;
+      z-index: 1000;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    nav ul li a:hover {
+      color: #ffdf6c;
+    }
+    section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      text-align: center;
+      color: #2575fc;
+    }
+    .profile-pic {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      display: block;
+      margin: 20px auto;
+      border: 4px solid #2575fc;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    ul li {
+      background: #f4f4f4;
+      margin: 8px 0;
+      padding: 12px;
+      border-radius: 6px;
+      transition: transform 0.2s;
+    }
+    ul li:hover {
+      transform: translateX(5px);
+      background: #e9f0ff;
+    }
+    .button {
+      display: inline-block;
+      background: #2575fc;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+    .button:hover {
+      background: #6a11cb;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #333;
+      color: white;
+      margin-top: 40px;
     }
   </style>
 </head>
 <body>
-  <div>
-    <h1>Hello, this is my portfolio website!</h1>
-    <p>Welcome to my space on the web 🌟</p>
-  </div>
+
+  <!-- Navigation -->
+  <nav>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#hobbies">Hobbies</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <header>
+    <h1>Hello, I'm <span class="highlight">Ishan Senevirathna</span></h1>
+    <p>Biotechnology Undergraduate | Lifelong Learner | Innovator</p>
+    <img src="photo.jpg" alt="My Photo" class="profile-pic">
+  </header>
+
+  <!-- About -->
+  <section id="about">
+    <h2>About Me</h2>
+    <p>
+      I am a passionate biotechnology student who enjoys exploring genetics, microbiology,
+      and industrial biotechnology. My aim is to contribute to scientific innovation
+      and create real-world impact. I am a curious learner, strong team player,
+      and always motivated to discover something new.
+    </p>
+  </section>
+
+  <!-- Education -->
+  <section id="education">
+    <h2>Educational Qualifications</h2>
+    <ul>
+      <li><strong>Secondary Education:</strong> Royal College Colombo (2012–2020)</li>
+      <li><strong>Higher Education:</strong> BSc in Biotechnology, University of Colombo (2021–Present)</li>
+    </ul>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <h2>Skills</h2>
+    <ul>
+      <li>Laboratory Techniques: PCR, Gel Electrophoresis, Microscopy</li>
+      <li>Data Analysis: Excel, GraphPad</li>
+      <li>Scientific Writing & Presentation</li>
+      <li>Teamwork and Problem Solving</li>
+    </ul>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects">
+    <h2>Projects</h2>
+    <ul>
+      <li>Research: Enzyme activity studies in food biotechnology</li>
+      <li>Course Project: DNA extraction and analysis techniques</li>
+      <li>Group Project: Case study on industrial biotechnology innovations</li>
+    </ul>
+  </section>
+
+  <!-- Hobbies -->
+  <section id="hobbies">
+    <h2>Hobbies</h2>
+    <ul>
+      <li>Reading scientific journals</li>
+      <li>Photography</li>
+      <li>Playing cricket</li>
+      <li>Traveling</li>
+    </ul>
+  </section>
+
+  <!-- Resume -->
+  <section id="resume">
+    <h2>Resume</h2>
+    <a href="resume.pdf" class="button" download>Download My Resume</a>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:ishanbio@gmail.com">ishanbio@gmail.com</a></p>
+  </section>
+
+  <footer>
+    <p>© 2025 Ishan Senevirathna. All Rights Reserved.</p>
+  </footer>
+
 </body>
 </html>
+
 
