@@ -1,149 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ishan Senevirathna - Portfolio</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <title>My Portfolio</title>
   <style>
-    /* Reset & base */
-    * {margin:0; padding:0; box-sizing:border-box;}
-    body {font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:#fdfdfd; color:#333; scroll-behavior:smooth;}
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f0f0f0;
+      color: #333;
+      scroll-behavior: smooth;
+    }
 
-    /* Navigation */
-    nav {position: fixed; top:0; width:100%; background: rgba(0,0,0,0.8); padding:12px 0; z-index:1000;}
-    nav ul {display:flex; justify-content:center; gap:20px; list-style:none;}
-    nav ul li a {color:white; text-decoration:none; font-weight:bold; transition:color 0.3s;}
-    nav ul li a:hover {color:#ffdf6c;}
+    header {
+      text-align: center;
+      padding: 80px 20px;
+      background: linear-gradient(to right, #6a11cb, #2575fc);
+      color: white;
+    }
 
-    /* Hero */
-    header {height:100vh; background: linear-gradient(to right, #6a11cb, #2575fc); display:flex; flex-direction:column; justify-content:center; align-items:center; color:white; text-align:center;}
-    header h1 {font-size:3rem; margin-bottom:10px; opacity:0; animation:fadeInDown 1s forwards 0.5s;}
-    header p {font-size:1.3rem; margin-bottom:20px; opacity:0; animation:fadeInDown 1s forwards 1s;}
-    .profile-pic {width:160px; height:160px; border-radius:50%; border:4px solid #ffdf6c; margin-bottom:20px; opacity:0; animation:fadeIn 1s forwards 1.5s;}
+    /* Typing Animation */
+    .typing {
+      overflow: hidden;
+      border-right: .15em solid #ffdf6c;
+      white-space: nowrap;
+      margin: 0 auto;
+      animation: typing 3s steps(30, end), blink .75s step-end infinite;
+      display: inline-block;
+      font-size: 2.2rem;
+      font-weight: bold;
+    }
+    @keyframes typing { from { width: 0 } to { width: 100% } }
+    @keyframes blink { 50% { border-color: transparent } }
 
     /* Section Styling */
-    section {padding:80px 20px; max-width:1000px; margin:auto; border-radius:12px; margin-bottom:40px; opacity:0; transform:translateY(30px); animation:fadeInUp 1s forwards; transition:all 0.5s;}
-    #about {background:#ffefef;}
-    #education {background:#f0fff4;}
-    #skills {background:#fffaf0;}
-    #projects {background:#f0f8ff;}
-    #hobbies {background:#fff0f5;}
-    #resume {background:#f5fff0;}
-    #contact {background:#fff5e6;}
+    section {
+      padding: 60px 20px;
+      text-align: center;
+      margin: 20px;
+      border-radius: 12px;
+      transition: transform 0.3s;
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    section:hover { transform: scale(1.02); }
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 15px;
+    }
+    p {
+      max-width: 700px;
+      margin: auto;
+      line-height: 1.6;
+    }
 
-    h2 {font-size:2rem; margin-bottom:20px; text-align:center; text-shadow:1px 1px 2px rgba(0,0,0,0.2);}
-    #about h2, #skills h2, #projects h2, #hobbies h2, #contact h2 {color:#2575fc;}
-    #education h2, #resume h2 {color:#ff4500;}
+    /* Section Background Colors */
+    #about { background: #ffe6e6; color: #333; }
+    #education { background: #e6ffe6; color: #333; }
+    #skills { background: #fff0e6; color: #333; }
+    #projects { background: #e6f0ff; color: #333; }
+    #hobbies { background: #fff0f5; color: #333; }
+    #resume { background: #e6fff0; color: #333; }
+    #contact { background: #fff5e6; color: #333; }
 
-    ul {list-style:none; padding:0;}
-    ul li {background:rgba(255,255,255,0.8); margin:10px 0; padding:12px; border-radius:8px; display:flex; align-items:center; gap:10px; transition:transform 0.3s, background 0.3s;}
-    ul li:hover {transform:translateX(5px); background:rgba(255,255,255,1);}
+    /* Scroll Reveal */
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+      transition: all 0.8s ease;
+    }
 
-    .section-icon {color:#2575fc; width:25px; text-align:center;}
+    /* Floating Icon */
+    .section-icon {
+      font-size: 40px;
+      display: inline-block;
+      margin-bottom: 10px;
+      animation: floatIcon 3s ease-in-out infinite;
+    }
+    @keyframes floatIcon {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
 
     /* Button */
-    .button {display:inline-block; background:#2575fc; color:white; padding:12px 24px; border-radius:6px; text-decoration:none; transition:background 0.3s;}
-    .button:hover {background:#6a11cb;}
+    .button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 24px;
+      background: #2575fc;
+      color: white;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .button:hover {
+      background: #6a11cb;
+      box-shadow: 0 0 15px #6a11cb;
+    }
 
-    /* Images inside sections */
-    .section-img {width:100%; max-width:300px; border-radius:12px; margin-top:10px; opacity:0; animation:fadeIn 1s forwards;}
-
-    /* Footer */
-    footer {text-align:center; padding:20px; background:#333; color:white; margin-top:40px;}
-
-    /* Animations */
-    @keyframes fadeInUp {to {opacity:1; transform:translateY(0);}}
-    @keyframes fadeInDown {to {opacity:1; transform:translateY(0);}}
-    @keyframes fadeIn {to {opacity:1;}}
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #333;
+      color: white;
+      font-size: 14px;
+    }
   </style>
 </head>
 <body>
 
-  <!-- Navigation -->
-  <nav>
-    <ul>
-      <li><a href="#about"><i class="fa fa-user"></i> About</a></li>
-      <li><a href="#education"><i class="fa fa-graduation-cap"></i> Education</a></li>
-      <li><a href="#skills"><i class="fa fa-lightbulb"></i> Skills</a></li>
-      <li><a href="#projects"><i class="fa fa-flask"></i> Projects</a></li>
-      <li><a href="#hobbies"><i class="fa fa-heart"></i> Hobbies</a></li>
-      <li><a href="#contact"><i class="fa fa-envelope"></i> Contact</a></li>
-    </ul>
-  </nav>
-
-  <!-- Hero Section -->
   <header>
-    <h1>Hello, I'm Ishan Senevirathna</h1>
-    <p>Biotechnology Undergraduate | Lifelong Learner | Innovator</p>
-    <img src="photo.jpg" alt="Profile Photo" class="profile-pic">
+    <h1 class="typing">Hello, I'm Ishan Senevirathna</h1>
+    <p>Welcome to my portfolio website 🚀</p>
   </header>
 
-  <!-- About Me -->
-  <section id="about">
-    <h2><i class="fa fa-user section-icon"></i> About Me</h2>
-    <p>I am a passionate biotechnology student exploring genetics, microbiology, and industrial biotechnology. I aim to contribute to scientific innovation and make a positive impact on society. I am curious, proactive, and enjoy working in teams.</p>
-    <img src="about_image.jpg" alt="About Image" class="section-img">
+  <section id="about" class="reveal">
+    <div class="section-icon">👤</div>
+    <h2>About Me</h2>
+    <p>I am a passionate biotechnology student exploring genetics, microbiology, and industrial biotechnology. I aim to contribute to scientific innovation and make a positive impact on society. Curious, proactive, and a team player.</p>
   </section>
 
-  <!-- Education -->
-  <section id="education">
-    <h2><i class="fa fa-graduation-cap section-icon"></i> Educational Qualifications</h2>
-    <ul>
-      <li><i class="fa fa-school"></i> Secondary Education: Royal College Colombo (2012–2020)</li>
-      <li><i class="fa fa-university"></i> Higher Education: BSc in Biotechnology, University of Colombo (2021–Present)</li>
-    </ul>
+  <section id="education" class="reveal">
+    <div class="section-icon">🎓</div>
+    <h2>Education</h2>
+    <p>B.Sc. in Biotechnology – University of Colombo (2021–Present)</p>
+    <p>High School – Royal College Colombo (2012–2020)</p>
   </section>
 
-  <!-- Skills -->
-  <section id="skills">
-    <h2><i class="fa fa-lightbulb section-icon"></i> Skills</h2>
-    <ul>
-      <li><i class="fa fa-flask"></i> Laboratory Techniques: PCR, Gel Electrophoresis, Microscopy</li>
-      <li><i class="fa fa-chart-line"></i> Data Analysis: Excel, GraphPad</li>
-      <li><i class="fa fa-pencil-alt"></i> Scientific Writing & Presentation</li>
-      <li><i class="fa fa-users"></i> Teamwork and Problem Solving</li>
-    </ul>
+  <section id="skills" class="reveal">
+    <div class="section-icon">💻</div>
+    <h2>Skills</h2>
+    <p>🔬 Laboratory Techniques | 💻 Web Development | 📊 Data Analysis | 🎨 Scientific Writing</p>
   </section>
 
-  <!-- Projects -->
-  <section id="projects">
-    <h2><i class="fa fa-flask section-icon"></i> Projects</h2>
-    <ul>
-      <li><i class="fa fa-dna"></i> Enzyme activity studies in food biotechnology</li>
-      <li><i class="fa fa-microscope"></i> DNA extraction and analysis techniques</li>
-      <li><i class="fa fa-industry"></i> Industrial biotechnology innovation case study</li>
-    </ul>
+  <section id="projects" class="reveal">
+    <div class="section-icon">📂</div>
+    <h2>Projects</h2>
+    <p>1. Enzyme Activity Studies in Food Biotechnology</p>
+    <p>2. DNA Extraction and Analysis Techniques</p>
+    <p>3. Industrial Biotechnology Innovation Case Study</p>
   </section>
 
-  <!-- Hobbies -->
-  <section id="hobbies">
-    <h2><i class="fa fa-heart section-icon"></i> Hobbies</h2>
-    <ul>
-      <li><i class="fa fa-book"></i> Reading scientific journals</li>
-      <li><i class="fa fa-camera"></i> Photography</li>
-      <li><i class="fa fa-baseball-ball"></i> Playing cricket</li>
-      <li><i class="fa fa-plane"></i> Traveling</li>
-    </ul>
+  <section id="hobbies" class="reveal">
+    <div class="section-icon">❤️</div>
+    <h2>Hobbies</h2>
+    <p>📚 Reading Scientific Journals | 📸 Photography | 🏏 Playing Cricket | ✈️ Traveling</p>
   </section>
 
-  <!-- Resume -->
-  <section id="resume">
-    <h2><i class="fa fa-file-pdf section-icon"></i> Resume</h2>
-    <a href="resume.pdf" class="button" download>Download My Resume</a>
+  <section id="resume" class="reveal">
+    <div class="section-icon">📄</div>
+    <h2>Resume</h2>
+    <p>Click below to download my resume (PDF)</p>
+    <a href="resume.pdf" class="button" download>Download Resume</a>
   </section>
 
-  <!-- Contact -->
-  <section id="contact">
-    <h2><i class="fa fa-envelope section-icon"></i> Contact</h2>
-    <p><i class="fa fa-envelope"></i> Email: <a href="mailto:ishanbio@gmail.com">ishanbio@gmail.com</a></p>
-    <p><i class="fa fa-phone"></i> Phone: +94 71 234 5678</p>
-    <p><i class="fa fa-github"></i> GitHub: <a href="https://github.com/Ishansenevirathna" target="_blank">github.com/Ishansenevirathna</a></p>
+  <section id="contact" class="reveal">
+    <div class="section-icon">📞</div>
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:ishanbio@gmail.com">ishanbio@gmail.com</a></p>
+    <p>Phone: +94 71 234 5678</p>
+    <a href="mailto:ishanbio@gmail.com" class="button">Get in Touch</a>
   </section>
 
   <footer>
-    <p>© 2025 Ishan Senevirathna. All Rights Reserved.</p>
+    <p>© 2025 Ishan Senevirathna | Designed with ❤️</p>
   </footer>
+
+  <script>
+    // Scroll Reveal
+    window.addEventListener("scroll", function() {
+      var reveals = document.querySelectorAll(".reveal");
+      for(var i = 0; i < reveals.length; i++) {
+        var windowHeight = window.innerHeight;
+        var elementTop = reveals[i].getBoundingClientRect().top;
+        var elementVisible = 150;
+        if(elementTop < windowHeight - elementVisible) {
+          reveals[i].classList.add("active");
+        } else {
+          reveals[i].classList.remove("active");
+        }
+      }
+    });
+  </script>
 
 </body>
 </html>
