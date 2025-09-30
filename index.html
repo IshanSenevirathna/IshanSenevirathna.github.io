@@ -20,19 +20,39 @@
       color: white;
     }
 
-    /* Typing Animation */
-    .typing {
-      overflow: hidden;
-      border-right: .15em solid #ffdf6c;
-      white-space: nowrap;
-      margin: 0 auto;
-      animation: typing 3s steps(30, end), blink .75s step-end infinite;
-      display: inline-block;
-      font-size: 2.2rem;
+    /* Hero Section */
+    .hero-title {
+      font-size: 2.5rem;
       font-weight: bold;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 1s forwards;
     }
-    @keyframes typing { from { width: 0 } to { width: 100% } }
-    @keyframes blink { 50% { border-color: transparent } }
+
+    .hero-subtitle {
+      font-size: 1.3rem;
+      margin-top: 10px;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 1s forwards 0.5s;
+    }
+
+    .profile-pic {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 4px solid #ffdf6c;
+      margin-top: 20px;
+      opacity: 0;
+      animation: fadeIn 1s forwards 1s;
+    }
+
+    @keyframes fadeInUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
 
     /* Section Styling */
     section {
@@ -45,10 +65,12 @@
       transform: translateY(50px);
     }
     section:hover { transform: scale(1.02); }
+
     h2 {
       font-size: 2rem;
       margin-bottom: 15px;
     }
+
     p {
       max-width: 700px;
       margin: auto;
@@ -111,8 +133,9 @@
 <body>
 
   <header>
-    <h1 class="typing">Hello, I'm Ishan Senevirathna</h1>
-    <p>Welcome to my portfolio website 🚀</p>
+    <img src="profile.jpg" alt="Profile Photo" class="profile-pic">
+    <h1 class="hero-title">Hello, I'm Ishan Senevirathna</h1>
+    <p class="hero-subtitle">Welcome to my portfolio website 🚀</p>
   </header>
 
   <section id="about" class="reveal">
